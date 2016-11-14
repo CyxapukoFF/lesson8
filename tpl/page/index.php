@@ -1,2 +1,6 @@
 <h1><?=$title?></h1>
-qqq
+<pre>
+<?php
+  print_r($model->name);
+?>
+</pre>

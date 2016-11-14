@@ -4,13 +4,14 @@
 //    c=<controller_name>&a=<action_name>
 
 
-
 function myAutoloader($className) {
   $c = str_replace('\\', DIRECTORY_SEPARATOR, $className);
   include_once('framework' . DIRECTORY_SEPARATOR .$c.'.php');
 }
 
 spl_autoload_register('myAutoloader');
+
+\Db::connect('lesson9');
 
 function getController($name) {
   $cName = 'controllers\\'.ucfirst($name) .'Controller';
