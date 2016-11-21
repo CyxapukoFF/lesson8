@@ -98,7 +98,7 @@ class Model extends \models\Model {
   }
 
   public function save() {
-    if (isset($this->id)) {
+    if (isset($this->data['id'])) {
       $this->update($this->data);
     }
     else {
@@ -116,6 +116,10 @@ class Model extends \models\Model {
     else {
       return FALSE;
     }
+  }
+
+  public function asArray() {
+    return $this->data;
   }
 
   public function __get($fld) {

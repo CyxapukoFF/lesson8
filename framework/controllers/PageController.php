@@ -2,23 +2,20 @@
 
 namespace controllers;
 
-use models\my\Test;
+use \models\my\User;
+use \Auth;
 
 class PageController extends Controller {
 
   public function indexAction() {
 
-    $model = new Test();
-    $model->name = 'Dmitriy';
-    $model->surname = 'Kozlov';
-    $model->age = 35;
-    $model->address = 'Ruzaevka';
-    $model->save();
-
-    ///$model = Test::get(1);
-
-    $this->view->arr = $arr;
-
+    // $user = new User();
+    // $user->get(1);
+    // Auth::login($user);
+    print "<pre>";
+    print_r(Auth::user());
+    print_r($_SESSION);
+exit;
     $this->view->title = 'Main page!!!';
     $this->view->render('page/index');
   }

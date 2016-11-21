@@ -2,6 +2,8 @@
 
 //  http::/localhost:8888/index.php?
 //    c=<controller_name>&a=<action_name>
+session_start();
+
 
 function myAutoloader($className) {
   $c = str_replace('\\', DIRECTORY_SEPARATOR, $className);
