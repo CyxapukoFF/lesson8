@@ -3,6 +3,7 @@
 namespace controllers;
 
 use models\text\Model;
+use \Http;
 
 class FormController extends Controller {
   public function indexAction() {
@@ -15,7 +16,7 @@ class FormController extends Controller {
     $model = new Model('data'.DIRECTORY_SEPARATOR.'data.txt');
     if (isset($_POST['add'])) {
       $model->insert($_POST);
-      header('Location: /?c=form');
+      Http::redirect('/?c=form');
     }
     $this->view->render('form/form');
   }
@@ -25,7 +26,7 @@ class FormController extends Controller {
 
     if (isset($_POST['id'])) {
       $model->update($_POST);
-      header('Location: /?c=form');
+      Http::redirect('/?c=form');
     }
 
     if (isset($_GET['id'])) {
@@ -33,7 +34,7 @@ class FormController extends Controller {
       $this->view->render('form/form');
     }
     else {
-      header('Location: /?c=form');
+      Http::redirect('/?c=form');
     }
   }
 
@@ -42,7 +43,7 @@ class FormController extends Controller {
     if (isset($_GET['id'])) {
       $model->delete($_GET['id']);
     }
-    header('Location: /?c=form');
+    Http::redirect('/?c=form');
   }
 
 
