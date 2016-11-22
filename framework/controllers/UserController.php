@@ -24,7 +24,7 @@ class UserController extends Controller {
       $user = new User();
       $user->getByLogin($_POST['login']);
 
-      if ($user->id !== NULL && $user->pass = md5($_POST['password'])) {
+      if ($user->id !== NULL && $user->pass == md5($_POST['password'])) {
         Auth::login($user);
         Http::redirect('/?c=user&a=index');
       }
