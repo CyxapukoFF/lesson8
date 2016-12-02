@@ -8,10 +8,30 @@ $(function() {
           function(data){
             text = "<ul>";
             data.forEach(function(item, i, arr) {
-              text += "<li>" + item.name + "   (" + item.price + ")</li>";
+              text += "<li>" + item.name + "   (" + item.price + ")<a class=\"deleteItem\" href=\"#\" rel=\""+item.id+"\">x</a></li>";
             });
             text += "</ul>";
             $("#contentContainer").html(text);
+
+            $(".deleteItem").on("click", function(){
+              var item = $(this);
+              var id = item.attr("rel");
+              $.post('/index.php?c=api&a=delete',
+                {
+                  "id": id
+                },
+                function(d){
+                  if (d.status == "ok") {
+                    funcArr["showUsersList"]();
+                  }
+                  else {
+                    $("#contentContainer").html("error");
+                  }
+                },
+                "json"
+              )
+              return false;
+            });
           },
           "json"
         );
@@ -67,4 +87,6 @@ $(function() {
       funcArr[name]();
       return false;
     });
+
+
 });
