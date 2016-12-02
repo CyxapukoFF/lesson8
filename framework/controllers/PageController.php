@@ -9,13 +9,7 @@ class PageController extends Controller {
 
   public function indexAction() {
 
-    // $user = new User();
-    // $user->get(1);
-    // Auth::login($user);
-    print "<pre>";
-    print_r(Auth::user());
-    print_r($_SESSION);
-exit;
+
     $this->view->title = 'Main page!!!';
     $this->view->render('page/index');
   }
