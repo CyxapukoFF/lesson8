@@ -3,7 +3,9 @@
 //  http::/localhost:8888/index.php?
 //    c=<controller_name>&a=<action_name>
 
-
+// print '<pre>';
+// print_r($_SERVER);
+// exit;
 
 function myAutoloader($className) {
   $c = str_replace('\\', DIRECTORY_SEPARATOR, $className);

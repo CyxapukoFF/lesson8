@@ -9,7 +9,7 @@ class PageController extends Controller {
   public function indexAction() {
 
     // @todo
-    $model = new Model('data'.DIRECTORY_SEPARATOR.'data.txt');
+    $model = new Model($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .'data'. DIRECTORY_SEPARATOR .'data.txt');
     $model->delete(1);
     $this->view->title = 'Main page!!!';
     $this->view->render('page/index');
