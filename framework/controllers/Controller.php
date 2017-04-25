@@ -5,16 +5,16 @@ namespace controllers;
 use views\View;
 
 class Controller {
-  protected $controller;
+  //protected $controller;
   protected $action = 'index';
   protected $view;
 
   public function init() {
-    $this->controller = $_GET['c'];
+    //$this->controller = $_GET['c'];
     if (isset($_GET['a'])) {
       $this->action     = $_GET['a'];
     }
-    $this->view = new View($_SERVER['ROOT_DIRECTORY'] .'/tpl/');
+    $this->view = new View($_SERVER['DOCUMENT_ROOT'] .'/tpl/');
   }
 
   public function run() {
