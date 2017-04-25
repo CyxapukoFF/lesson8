@@ -19,7 +19,7 @@ class Model extends \models\Model {
       $m = count($this->fields);
       for ($i = 1; $i < $n; $i++) {
         $arr = explode('|', $rows[$i]);
-        $arr1 = [];
+        $arr1 = array();
         for ($j = 0; $j < $m; $j++) {
           $arr1[$this->fields[$j]] = trim($arr[$j]);
         }
@@ -56,7 +56,7 @@ class Model extends \models\Model {
       echo "You must specify ID!";
       exit(1);
     }
-    $arr = [];
+    $arr = array();
     foreach ($this->fields as $id) {
       $arr[$id] = $data[$id];
     }

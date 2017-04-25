@@ -3,7 +3,7 @@
 namespace views;
 
 class View {
-  protected $data =[];
+  protected $data =array();
   protected $path;
 
   public function __construct($path) {
